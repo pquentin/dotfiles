@@ -3,7 +3,7 @@ filetype plugin indent on
 
 " Syntax highlighting
 syntax on
-set background=light
+set background=dark
 colorscheme solarized
 
 " Indentation
