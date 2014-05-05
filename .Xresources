@@ -1,3 +1,6 @@
+*scrollBar: false
+*metaSendsEscape: true
+
 ! Common
 
 #define S_yellow #b58900
@@ -63,5 +66,3 @@
 *color13: S_violet
 *color14: S_base1
 *color15: S_base3
-
-*scrollBar: false
