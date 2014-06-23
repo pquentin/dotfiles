@@ -1,4 +1,4 @@
-URxvt.scrollBar: false
+*scrollBar: false
 *metaSendsEscape: true
 
 ! Common
