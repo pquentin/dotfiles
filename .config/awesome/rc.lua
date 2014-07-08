@@ -244,7 +244,7 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({                   }, "F12", function () awful.util.spawn("xlock -mode voters") end),
+    awful.key({                   }, "F12", function () awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
