@@ -16,12 +16,15 @@ set tabstop=4
 set wildmenu
 set wildignore=*.o,*.obj,*.bak,*.exe,*.class,*.swp
 
-" spell check in git commits
+" file types
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+" spell check
+set spell spelllang=en
 autocmd Filetype gitcommit setlocal spell textwidth=72
-" latex spell check
+autocmd Filetype markdown setlocal spell
 autocmd Filetype tex setlocal spell
 let g:tex_comment_nospell= 1
-set spell spelllang=en
 
 " Hard mode :)
 noremap <Up> <NOP>
