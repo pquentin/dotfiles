@@ -41,4 +41,7 @@ export PIP_DOWNLOAD_CACHE=~/.pip/cache
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 
+# CVS
+export CVS_RSH=ssh
+
 source ~/.zshrc_local
