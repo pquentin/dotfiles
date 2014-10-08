@@ -12,6 +12,9 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 
+" wrap
+au FileType text,markdown,rst,tex setlocal textwidth=70
+
 " file autocompletion
 set wildmenu
 set wildignore=*.o,*.obj,*.bak,*.exe,*.class,*.swp
