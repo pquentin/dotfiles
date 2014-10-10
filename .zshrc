@@ -18,11 +18,46 @@ bindkey -e
 
 alias ls='ls --color'
 
-# Prompt
-autoload -Uz promptinit
-promptinit
-PROMPT="%{$fg[cyan]%}%m%{$reset_color%}:%~∮ "
-RPROMPT='%T'
+# git prompt preparations
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git cvs svn
+precmd () { vcs_info }
+setopt prompt_subst
+zstyle ':vcs_info:*' actionformats '%b|%a%m'
+zstyle ':vcs_info:*' formats       '%b%m'
+
+# http://eseth.org/2010/git-in-zsh.html#hooks
+zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
+
+# Show remote ref name and number of commits ahead-of or behind
+function +vi-git-st() {
+    local remote
+    local -a gitstatus
+
+    # Are we on a remote-tracking branch?
+    remote=${$(git rev-parse --verify ${hook_com[branch]}@{upstream} \
+        --symbolic-full-name 2>/dev/null)/refs\/remotes\/}
+
+    if [[ -n ${remote} ]] ; then
+        hook_com[branch]="%{$fg[blue]%}${remote}%{$reset_color%}"
+    else
+        hook_com[branch]="%{$fg[blue]%}${hook_com[branch]}%{$reset_color%}"
+    fi
+}
+
+# Show count of stashed changes
+function +vi-git-stash() {
+    local -a stashes
+
+    if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
+        stashes=$(git stash list 2>/dev/null | wc -l)
+        hook_com[misc]+="|%{$fg[red]%}${stashes}%{$reset_color%}"
+    fi
+}
+
+# prompt
+PROMPT='%{$fg[cyan]%}%m%{$reset_color%}:%~∮ '
+RPROMPT='${vcs_info_msg_0_} %T'
 
 # sudo autocompletion
 zstyle ':completion:*' list-colors ''
