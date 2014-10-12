@@ -1,2 +1,2 @@
-.ssh/id_rsa
+.ssh/*_rsa
 .ssh/known_hosts
