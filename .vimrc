@@ -1,6 +1,9 @@
 execute pathogen#infect()
 filetype plugin indent on
 
+" modelines (used for spellcheck)
+set modeline
+
 " Syntax highlighting
 syntax on
 set background=dark
