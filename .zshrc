@@ -23,14 +23,27 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git cvs svn
 precmd () { vcs_info }
 setopt prompt_subst
-zstyle ':vcs_info:*' actionformats '%b|%a%m'
-zstyle ':vcs_info:*' formats       '%b%m'
+zstyle ':vcs_info:git*:*' check-for-changes true
+zstyle ':vcs_info:*' actionformats '%c %b|%a%m'
+zstyle ':vcs_info:*' formats       '%c %b%m'
 
 # http://eseth.org/2010/git-in-zsh.html#hooks
-zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
+zstyle ':vcs_info:git*+set-message:*' hooks git-status git-ref git-stash
 
-# Show remote ref name and number of commits ahead-of or behind
-function +vi-git-st() {
+# Show modifications
+function +vi-git-status() {
+    local changed
+    changed=$(git status -s | grep '^ M')
+
+    if [[ -n ${changed} ]]; then
+        dollar="%{$fg[yellow]%}∮%{$reset_color%}"
+    else
+        dollar="∮"
+    fi
+}
+
+# Show remote ref name
+function +vi-git-ref() {
     local remote
     local -a gitstatus
 
@@ -56,7 +69,7 @@ function +vi-git-stash() {
 }
 
 # prompt
-PROMPT='%{$fg[cyan]%}%m%{$reset_color%}:%~∮ '
+PROMPT='%{$fg[cyan]%}%m%{$reset_color%}:%~$dollar '
 RPROMPT='${vcs_info_msg_0_} %T'
 
 # sudo autocompletion
