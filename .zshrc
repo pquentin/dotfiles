@@ -62,7 +62,7 @@ function +vi-git-ref() {
 function +vi-git-stash() {
     local -a stashes
 
-    if [[ -s ${hook_com[base]}/.git/refs/stash ]] ; then
+    if [[ -s $(git rev-parse --git-dir)/refs/stash ]] ; then
         stashes=$(git stash list 2>/dev/null | wc -l)
         hook_com[misc]+="|%{$fg[red]%}${stashes}%{$reset_color%}"
     fi
