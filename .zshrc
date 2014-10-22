@@ -21,7 +21,7 @@ alias ls='ls --color'
 # git prompt preparations
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git cvs svn
-precmd () { vcs_info }
+precmd () { dollar="∮"; vcs_info }
 setopt prompt_subst
 zstyle ':vcs_info:git*:*' check-for-changes true
 zstyle ':vcs_info:*' actionformats '%c %b|%a%m'
