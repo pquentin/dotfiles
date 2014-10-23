@@ -92,4 +92,8 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 # CVS
 export CVS_RSH=ssh
 
+#ack
+export ACK_PAGER='less --RAW-CONTROL-CHARS --quit-if-one-screen --no-init'
+alias ack='ack --color-match=yellow'
+
 source ~/.zshrc_local
