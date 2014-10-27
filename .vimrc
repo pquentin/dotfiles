@@ -16,7 +16,8 @@ set shiftwidth=4
 set tabstop=4
 
 " wrap
-au FileType text,markdown,rst,tex setlocal textwidth=70
+au FileType text,markdown,rst setlocal textwidth=70
+au FileType tex setlocal textwidth=79
 
 " file autocompletion
 set wildmenu
