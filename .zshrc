@@ -33,7 +33,7 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-status git-ref git-stash
 # Show modifications
 function +vi-git-status() {
     local changed
-    changed=$(git status -s | grep '^ M')
+    changed=$(git status -s | egrep '^ M|^??')
 
     if [[ -n ${changed} ]]; then
         dollar="%{$fg[yellow]%}∮%{$reset_color%}"
