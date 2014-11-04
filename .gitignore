@@ -1,2 +1,7 @@
 .ssh/*_rsa
+.ssh/*_rsa.pub
 .ssh/known_hosts
+
+.*.swp
+*.sug
+*.spl
