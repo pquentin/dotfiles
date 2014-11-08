@@ -3,5 +3,7 @@
 .ssh/known_hosts
 
 .*.swp
+
+.vim/.netrwhist
 *.sug
 *.spl

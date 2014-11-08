@@ -24,8 +24,8 @@ zstyle ':vcs_info:*' enable git cvs svn
 precmd () { dollar="∮"; vcs_info }
 setopt prompt_subst
 zstyle ':vcs_info:git*:*' check-for-changes true
-zstyle ':vcs_info:*' actionformats '%c %b|%a%m'
-zstyle ':vcs_info:*' formats       '%c %b%m'
+zstyle ':vcs_info:*' actionformats '%b|%a%m'
+zstyle ':vcs_info:*' formats       '%b%m'
 
 # http://eseth.org/2010/git-in-zsh.html#hooks
 zstyle ':vcs_info:git*+set-message:*' hooks git-status git-ref git-stash
