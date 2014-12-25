@@ -82,6 +82,8 @@ export REPORTTIME=1 # doesn't count IO, and one second of pure computation is al
 # tarsnap
 alias storepass='tarsnap --fsck && cd ~ && tarsnap -d -f passes && tarsnap -c -f passes .local/share/pasaffe/pasaffe.psafe3'
 alias getpass='tarsnap --fsck && cd ~ && tarsnap -x -f passes .local/share/pasaffe/pasaffe.psafe3 '
+alias storepieces='tarsnap --fsck && cd ~/Documents; tarsnap -d -f pieces && tarsnap -c -f pieces Pièces\ administratives; cd -'
+alias getpieces='tarsnap --fsck && cd ~/Documents; tarsnap -x -f pieces; cd -'
 
 # virtualenvwrapper
 export WORKON_HOME=~/.virtualenvs
