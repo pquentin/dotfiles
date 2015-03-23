@@ -16,7 +16,20 @@ autoload -U colors && colors
 export EDITOR=vim
 bindkey -e
 
-alias ls='ls --color'
+# Plateform test
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='darwin'
+fi
+
+if [[ $platform == 'linux' ]]; then
+   alias ls='ls --color=auto'
+elif [[ $platform == 'darwin' ]]; then
+   alias ls='ls -G'
+fi
 
 # git prompt preparations
 autoload -Uz vcs_info
