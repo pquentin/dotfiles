@@ -87,6 +87,29 @@ function +vi-git-stash() {
 PROMPT='%{$fg[cyan]%}%m%{$reset_color%}:%~$dollar '
 RPROMPT='${vcs_info_msg_0_} %T'
 
+export PROJECTS_HOME="$HOME/Projects"
+
+function chpwd() {
+    emulate -L zsh
+    if [[ ${PWD##$PROJECTS_HOME} != $PWD ]]; then
+        venvname=$(echo "${PWD##$PROJECTS_HOME}" | cut -d'/' -f2)
+        cur_env=$(echo "${VIRTUAL_ENV##$WORKON_HOME}/" | cut -d'/' -f2)
+        if [[ $venvname != "" ]] && [[ -d "$WORKON_HOME/$venvname" ]]; then
+            if [[ ${cur_env} != $venvname ]]; then
+                workon "$venvname"
+            fi
+        else
+            if [[ $VIRTUAL_ENV != "" ]]; then
+                deactivate
+            fi
+        fi
+    else
+        if [[ $VIRTUAL_ENV != "" ]]; then
+            deactivate
+        fi
+    fi
+}
+
 # sudo autocompletion
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
