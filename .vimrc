@@ -1,3 +1,5 @@
+let g:pathogen_disabled = ['dwm.vim']
+
 execute pathogen#infect()
 filetype plugin indent on
 
@@ -9,6 +11,11 @@ syntax on
 set background=dark
 colorscheme solarized
 set hlsearch
+
+" show lines and columns
+set ruler
+" show lines on the left
+set number
 
 " Indentation
 set expandtab
@@ -42,3 +49,9 @@ inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
 inoremap  <Left>   <NOP>
 inoremap  <Right>  <NOP>
+
+" stacked wmii
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-L> <C-W>l
+map <C-H> <C-W>h
