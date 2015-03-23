@@ -85,7 +85,6 @@ alias getpass='tarsnap --fsck && cd ~ && tarsnap -x -f passes .local/share/pasaf
 
 # virtualenvwrapper
 export WORKON_HOME=~/.virtualenvs
-export PIP_DOWNLOAD_CACHE=~/.pip/cache
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 
