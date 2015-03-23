@@ -46,9 +46,11 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-status git-ref git-stash
 # Show modifications
 function +vi-git-status() {
     local changed
-    changed=$(git status -s | egrep '^ M|^??')
+    modified=$(git status -s | egrep '^ M')
+    newfile=$(git status -s | grep '^??')
+    deleted=$(git status -s | grep '^D ')
 
-    if [[ -n ${changed} ]]; then
+    if [[ -n ${modified} || -n ${newfile} || -n ${deleted} ]]; then
         dollar="%{$fg[yellow]%}∮%{$reset_color%}"
     else
         dollar="∮"
@@ -76,7 +78,7 @@ function +vi-git-stash() {
     local -a stashes
 
     if [[ -s $(git rev-parse --git-dir)/refs/stash ]] ; then
-        stashes=$(git stash list 2>/dev/null | wc -l)
+        stashes=$(echo $(git stash list 2>/dev/null | wc -l) | sed 's/ //g')
         hook_com[misc]+="|%{$fg[red]%}${stashes}%{$reset_color%}"
     fi
 }
