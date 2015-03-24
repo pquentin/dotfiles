@@ -87,6 +87,7 @@ function +vi-git-stash() {
 PROMPT='%{$fg[cyan]%}%m%{$reset_color%}:%~$dollar '
 RPROMPT='${vcs_info_msg_0_} %T'
 
+# Adapted from https://gist.github.com/euphoris/3405460
 export PROJECTS_HOME="$HOME/Projects"
 
 function chpwd() {
