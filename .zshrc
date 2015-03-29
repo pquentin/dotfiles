@@ -16,7 +16,20 @@ autoload -U colors && colors
 export EDITOR=vim
 bindkey -e
 
-alias ls='ls --color'
+# Plateform test
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='linux'
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='darwin'
+fi
+
+if [[ $platform == 'linux' ]]; then
+   alias ls='ls --color=auto'
+elif [[ $platform == 'darwin' ]]; then
+   alias ls='ls -G'
+fi
 
 # git prompt preparations
 autoload -Uz vcs_info
@@ -33,9 +46,11 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-status git-ref git-stash
 # Show modifications
 function +vi-git-status() {
     local changed
-    changed=$(git status -s | egrep '^ M|^??')
+    modified=$(git status -s | egrep '^ M')
+    newfile=$(git status -s | grep '^??')
+    deleted=$(git status -s | grep '^D ')
 
-    if [[ -n ${changed} ]]; then
+    if [[ -n ${modified} || -n ${newfile} || -n ${deleted} ]]; then
         dollar="%{$fg[yellow]%}∮%{$reset_color%}"
     else
         dollar="∮"
@@ -63,7 +78,7 @@ function +vi-git-stash() {
     local -a stashes
 
     if [[ -s $(git rev-parse --git-dir)/refs/stash ]] ; then
-        stashes=$(git stash list 2>/dev/null | wc -l)
+        stashes=$(echo $(git stash list 2>/dev/null | wc -l) | sed 's/ //g')
         hook_com[misc]+="|%{$fg[red]%}${stashes}%{$reset_color%}"
     fi
 }
@@ -71,6 +86,30 @@ function +vi-git-stash() {
 # prompt
 PROMPT='%{$fg[cyan]%}%m%{$reset_color%}:%~$dollar '
 RPROMPT='${vcs_info_msg_0_} %T'
+
+# Adapted from https://gist.github.com/euphoris/3405460
+export PROJECTS_HOME="$HOME/Projects"
+
+function chpwd() {
+    emulate -L zsh
+    if [[ ${PWD##$PROJECTS_HOME} != $PWD ]]; then
+        venvname=$(echo "${PWD##$PROJECTS_HOME}" | cut -d'/' -f2)
+        cur_env=$(echo "${VIRTUAL_ENV##$WORKON_HOME}/" | cut -d'/' -f2)
+        if [[ $venvname != "" ]] && [[ -d "$WORKON_HOME/$venvname" ]]; then
+            if [[ ${cur_env} != $venvname ]]; then
+                workon "$venvname"
+            fi
+        else
+            if [[ $VIRTUAL_ENV != "" ]]; then
+                deactivate
+            fi
+        fi
+    else
+        if [[ $VIRTUAL_ENV != "" ]]; then
+            deactivate
+        fi
+    fi
+}
 
 # sudo autocompletion
 zstyle ':completion:*' list-colors ''
@@ -87,7 +126,6 @@ alias getpieces='tarsnap --fsck && cd ~/Documents; tarsnap -x -f pieces; cd -'
 
 # virtualenvwrapper
 export WORKON_HOME=~/.virtualenvs
-export PIP_DOWNLOAD_CACHE=~/.pip/cache
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 
