@@ -115,6 +115,10 @@ function chpwd() {
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
+# don't eat spaces before pipes when tab-completing
+# http://superuser.com/questions/613685/how-stop-zsh-from-eating-space-before-pipe-symbol
+ZLE_REMOVE_SUFFIX_CHARS=$' \t\n;&'
+
 # Report time for longer commands
 export REPORTTIME=1 # doesn't count IO, and one second of pure computation is already a lot.
 
