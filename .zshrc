@@ -16,7 +16,7 @@ autoload -U colors && colors
 export EDITOR=vim
 bindkey -e
 
-# Plateform test
+# Platform test
 platform='unknown'
 unamestr=`uname`
 if [[ "$unamestr" == 'Linux' ]]; then
