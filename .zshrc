@@ -90,6 +90,12 @@ RPROMPT='${vcs_info_msg_0_} %T'
 # Adapted from https://gist.github.com/euphoris/3405460
 export PROJECTS_HOME="$HOME/Projects"
 
+function u() {
+    for p in `find $PROJECTS_HOME -type d -depth 1`; do
+        test -z "$(git --git-dir=$p/.git --work-tree=$p diff-index --name-only HEAD -- 2> /dev/null)" || echo $(basename $p)
+    done
+}
+
 function chpwd() {
     emulate -L zsh
     if [[ ${PWD##$PROJECTS_HOME} != $PWD ]]; then
