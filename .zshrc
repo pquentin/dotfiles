@@ -146,6 +146,9 @@ export CVS_RSH=ssh
 export ACK_PAGER='less --RAW-CONTROL-CHARS --quit-if-one-screen --no-init'
 alias ack='ack --color-match=yellow'
 
+# Python REPL history
+export PYTHONSTARTUP=$HOME/.pythonrc
+
 source ~/.zshrc_local
 
 alias normal='xrandr --output LVDS --auto --pos 0x0 --output VGA-0 --auto --right-of LVDS
