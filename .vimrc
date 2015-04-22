@@ -22,9 +22,12 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 
+" '80 chars' column mark
+set colorcolumn=+1
+
 " wrap
 au FileType text,markdown,rst setlocal textwidth=70
-au FileType tex setlocal textwidth=79
+au FileType tex,python setlocal textwidth=79
 
 " file autocompletion
 set wildmenu
