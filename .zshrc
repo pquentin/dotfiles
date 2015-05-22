@@ -96,6 +96,12 @@ function u() {
     done
 }
 
+function gp() {
+    for p in `find $PROJECTS_HOME -type d -depth 1`; do
+        pushd $p; git pull; popd
+    done
+}
+
 function chpwd() {
     emulate -L zsh
     if [[ ${PWD##$PROJECTS_HOME} != $PWD ]]; then
