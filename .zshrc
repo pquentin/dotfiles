@@ -92,7 +92,10 @@ export PROJECTS_HOME="$HOME/Projects"
 
 function u() {
     for p in `find $PROJECTS_HOME -type d -depth 1`; do
-        test -z "$(git --git-dir=$p/.git --work-tree=$p diff-index --name-only HEAD -- 2> /dev/null)" || echo $(basename $p)
+        test -z "$(git --git-dir=$p/.git --work-tree=$p diff-index --name-only HEAD -- 2> /dev/null)" || echo change $(basename $p)
+    done
+    for p in `find $PROJECTS_HOME -type d -depth 1`; do
+        test -z "$(git --git-dir=$p/.git --work-tree=$p rev-list HEAD@{upstream}..HEAD 2> /dev/null)" || echo commit $(basename $p)
     done
 }
 
