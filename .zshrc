@@ -3,7 +3,8 @@ setopt histignorealldups
 HISTSIZE=100000
 SAVEHIST=100000
 HISTFILE=~/.zsh_history
-setopt appendhistory
+setopt appendhistory  # append to history before closing terminal
+setopt histignorespace  # forget commands starting with space
 
 setopt extendedglob notify
 unsetopt beep
