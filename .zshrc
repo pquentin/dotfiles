@@ -6,6 +6,9 @@ HISTFILE=~/.zsh_history
 setopt appendhistory  # append to history before closing terminal
 setopt histignorespace  # forget commands starting with space
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 setopt extendedglob notify
 unsetopt beep
 
