@@ -27,7 +27,7 @@ set colorcolumn=+1
 
 " wrap
 au FileType text,markdown,rst setlocal textwidth=70
-au FileType tex,python,javascript setlocal textwidth=79
+au FileType tex,python,javascript,htmldjango setlocal textwidth=79
 
 " file autocompletion
 set wildmenu
