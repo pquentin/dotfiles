@@ -153,6 +153,9 @@ export WORKON_HOME=~/.virtualenvs
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 
+# brew
+export PATH="/usr/local/sbin:$PATH"
+
 # CVS
 export CVS_RSH=ssh
 
