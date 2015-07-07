@@ -22,12 +22,11 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 
-" '80 chars' column mark
-set colorcolumn=+1
-
-" wrap
+" column, but no wrap
 au FileType text,markdown,rst setlocal textwidth=70
 au FileType tex,python,javascript,htmldjango setlocal textwidth=79
+set formatoptions-=t
+set colorcolumn=+1
 
 " file autocompletion
 set wildmenu
