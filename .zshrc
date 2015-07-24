@@ -110,7 +110,7 @@ function u() {
 
 function gp() {
     for p in `find $PROJECTS_HOME -type d -depth 1`; do
-        cd $p; pwd; git branch; git pull; cd -
+        cd $p; pwd; git branch; git pull; cd - > /dev/null; echo
     done
 }
 
