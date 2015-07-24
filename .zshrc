@@ -170,8 +170,11 @@ alias ack='ack --color-match=yellow'
 # Python REPL history
 export PYTHONSTARTUP=$HOME/.pythonrc
 
-source ~/.zshrc_local
+# pipsi
+export PATH=$HOME/.local/bin:$PATH
 
-alias normal='xrandr --output LVDS --auto --pos 0x0 --output VGA-0 --auto --right-of LVDS
-'
+# xrandr for talks
+alias normal='xrandr --output LVDS --auto --pos 0x0 --output VGA-0 --auto --right-of LVDS'
 alias mirror='xrandr --fb 1280x1024 --output VGA-0 --mode 1280x1024 --pos 0x0'
+
+source ~/.zshrc_local
