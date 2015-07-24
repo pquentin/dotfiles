@@ -55,8 +55,12 @@ function +vi-git-status() {
     newfile=$(git status -s | grep '^??')
     deleted=$(git status -s | grep '^D.')
 
+    indexed=$(git status -s | grep '^[AM].')
+
     if [[ -n ${modified} || -n ${newfile} || -n ${deleted} ]]; then
         dollar="%{$fg[yellow]%}∮%{$reset_color%}"
+    elif [[ -n ${indexed} ]]; then
+        dollar="%{$fg[green]%}∮%{$reset_color%}"
     else
         dollar="∮"
     fi
