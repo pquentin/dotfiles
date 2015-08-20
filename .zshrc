@@ -51,13 +51,10 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-status git-ref git-stash
 # Show modifications
 function +vi-git-status() {
     local changed
-    modified=$(git status -s | egrep '^.M')
-    newfile=$(git status -s | grep '^??')
-    deleted=$(git status -s | grep '^D.')
+    modified=$(git status -s | egrep '^[ ?][^ ]')
+    indexed=$(git status -s | grep '^[^ ] ')
 
-    indexed=$(git status -s | grep '^[AM].')
-
-    if [[ -n ${modified} || -n ${newfile} || -n ${deleted} ]]; then
+    if [[ -n ${modified} ]]; then
         dollar="%{$fg[yellow]%}∮%{$reset_color%}"
     elif [[ -n ${indexed} ]]; then
         dollar="%{$fg[green]%}∮%{$reset_color%}"
