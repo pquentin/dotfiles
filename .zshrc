@@ -51,8 +51,8 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-status git-ref git-stash
 # Show modifications
 function +vi-git-status() {
     local changed
-    modified=$(git status -s | egrep '^[ ?][^ ]')
-    indexed=$(git status -s | grep '^[^ ] ')
+    modified=$(git status -s | egrep '^.[^ ]')
+    indexed=$(git status -s | grep '^[^ ].')
 
     if [[ -n ${modified} ]]; then
         dollar="%{$fg[yellow]%}∮%{$reset_color%}"
