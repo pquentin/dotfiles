@@ -107,6 +107,9 @@ function u() {
         test -e "$p/.git/refs/stash" && echo stashed $(basename $p)
     done
     for p in `find $PROJECTS_HOME -type d -depth 1`; do
+        developed.py $(basename $p) && echo developed in $(basename $p)
+    done
+    for p in `find $PROJECTS_HOME -type d -depth 1`; do
         test -z "$(git --git-dir=$p/.git --work-tree=$p rev-list HEAD@{upstream}..HEAD 2> /dev/null)" || echo commit $(basename $p)
     done
 }
@@ -175,6 +178,9 @@ export PYTHONSTARTUP=$HOME/.pythonrc
 
 # pipsi
 export PATH=$HOME/.local/bin:$PATH
+
+# dotfiles
+export PATH=$PROJECTS_HOME/dotfiles/bin:$PATH
 
 # xrandr for talks
 alias normal='xrandr --output LVDS --auto --pos 0x0 --output VGA-0 --auto --right-of LVDS'
