@@ -21,6 +21,7 @@ set number
 set expandtab
 set shiftwidth=4
 set tabstop=4
+autocmd Filetype json setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 " column, but no wrap
 au FileType text,markdown,rst setlocal textwidth=70
