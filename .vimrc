@@ -3,6 +3,8 @@ let g:pathogen_disabled = ['dwm.vim']
 execute pathogen#infect()
 filetype plugin indent on
 
+set nocompatible
+
 " modelines (used for spellcheck)
 set modeline
 
@@ -12,6 +14,9 @@ set background=dark
 colorscheme solarized
 set hlsearch
 
+" incremental search
+set incsearch
+
 " show lines and columns
 set ruler
 " show lines on the left
@@ -19,9 +24,11 @@ set number
 
 " Indentation
 set expandtab
+set smarttab
+set shiftround
 set shiftwidth=4
-set tabstop=4
-autocmd Filetype json setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+set tabstop=12
+autocmd Filetype json setlocal expandtab shiftwidth=2 softtabstop=2
 
 " column, but no wrap
 au FileType text,markdown,rst setlocal textwidth=70
