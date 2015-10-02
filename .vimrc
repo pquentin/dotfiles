@@ -13,6 +13,7 @@ syntax on
 set background=dark
 colorscheme solarized
 set hlsearch
+autocmd BufNewFile,BufRead *.jsonl set filetype=json
 
 " incremental search
 set incsearch
