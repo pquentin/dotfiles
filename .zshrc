@@ -127,6 +127,8 @@ function gp() {
     done
 }
 
+alias fixvenv3='deactivate; rmvirtualenv $(basename $(pwd)); mkvirtualenv $(basename $(pwd)) && pip install -r requirements-dev.txt || pip install -r requirements.txt'
+
 function chpwd() {
     emulate -L zsh
     if [[ ${PWD##$PROJECTS_HOME} != $PWD ]]; then
