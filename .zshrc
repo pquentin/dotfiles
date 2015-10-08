@@ -114,6 +114,13 @@ function u() {
     done
 }
 
+function gl() {
+    for p in `find $PROJECTS_HOME -type d -depth 1`; do
+        echo $p
+        git --git-dir=$p/.git --work-tree=$p --no-pager log --since=$1 --before=$2 --author='Quentin Pradet'
+    done
+}
+
 function gp() {
     for p in `find $PROJECTS_HOME -type d -depth 1`; do
         cd $p; pwd; git branch; git pull; cd - > /dev/null; echo
