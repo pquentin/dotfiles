@@ -122,7 +122,7 @@ function glogday() {
 
 function glogprecise() {
     for p in `find $PROJECTS_HOME -type d -depth 1`; do
-        git --git-dir=$p/.git --work-tree=$p --no-pager log --date=local --since=$1 --before=$ --author='Quentin Pradet' 2> /dev/null
+        git --git-dir=$p/.git --work-tree=$p --no-pager log --date=local --since=$1 --before=$1 --author='Quentin Pradet' 2> /dev/null
     done
 }
 
