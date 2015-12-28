@@ -131,6 +131,12 @@ function gp() {
     done
 }
 
+function checkoutbranch() {
+    for p in `find $PROJECTS_HOME -type d -depth 1`; do
+        cd $p; pwd; git checkout $1; cd - > /dev/null; echo
+    done
+}
+
 alias fixvenv3='deactivate; rmvirtualenv $(basename $(pwd)); mkvirtualenv $(basename $(pwd)) && pip install -r requirements-dev.txt || pip install -r requirements.txt'
 
 function chpwd() {
