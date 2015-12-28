@@ -205,4 +205,11 @@ export PATH=$PROJECTS_HOME/dotfiles/bin:$PATH
 alias normal='xrandr --output LVDS --auto --pos 0x0 --output VGA-0 --auto --right-of LVDS'
 alias mirror='xrandr --fb 1280x1024 --output VGA-0 --mode 1280x1024 --pos 0x0'
 
+# kubectl
+alias ikubectl='kubectl --namespace=int'
+alias skubectl='kubectl --namespace=stg'
+alias pkubectl='kubectl --namespace=prd'
+alias ckubectl='kubectl --namespace=ci'
+alias infrakubectl='kubectl --namespace=infrastructure'
+
 source ~/.zshrc_local
