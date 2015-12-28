@@ -19,7 +19,6 @@ autoload -U colors && colors
 # Use emacs keybindings even if our EDITOR is set to vi
 export EDITOR=vim
 bindkey -e
-bindkey "^[[3~" delete-char  # OS X delete
 
 # Platform test
 platform='unknown'
