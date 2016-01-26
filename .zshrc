@@ -140,6 +140,7 @@ function checkoutbranch() {
 }
 
 alias fixvenv3='deactivate; rmvirtualenv $(basename $(pwd)); mkvirtualenv $(basename $(pwd)) && pip install -r requirements-dev.txt || pip install -r requirements.txt'
+alias showauthors='git log | grep Author | sort | uniq -c | sort -rn'
 
 function chpwd() {
     emulate -L zsh
