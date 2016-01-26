@@ -209,10 +209,10 @@ alias normal='xrandr --output LVDS --auto --pos 0x0 --output VGA-0 --auto --righ
 alias mirror='xrandr --fb 1280x1024 --output VGA-0 --mode 1280x1024 --pos 0x0'
 
 # kubectl
-alias ikubectl='kubectl --namespace=int'
-alias skubectl='kubectl --namespace=stg'
-alias pkubectl='kubectl --namespace=prd'
-alias ckubectl='kubectl --namespace=ci'
+alias intkubectl='kubectl --namespace=int'
+alias stgkubectl='kubectl --namespace=stg'
+alias prdkubectl='kubectl --namespace=prd'
+alias cikubectl='kubectl --namespace=ci'
 alias infrakubectl='kubectl --namespace=infrastructure'
 
 source ~/.zshrc_local
