@@ -19,6 +19,8 @@ autoload -U colors && colors
 # Use emacs keybindings even if our EDITOR is set to vi
 export EDITOR=vim
 bindkey -e
+# Shift-TAB
+bindkey '^[[Z' reverse-menu-complete
 
 # Platform test
 platform='unknown'
