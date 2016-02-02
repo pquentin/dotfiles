@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>me.pradet.quentin.ulogme</string> <!-- org.mongodb.mongodb perhaps? -->
+    <string>me.pradet.quentin.ulogme</string>
 
     <key>OnDemand</key>
     <false/>
