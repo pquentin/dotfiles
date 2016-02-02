@@ -5,8 +5,8 @@
     <key>Label</key>
     <string>me.pradet.quentin.ulogme</string>
 
-    <key>OnDemand</key>
-    <false/>
+    <key>KeepAlive</key>
+    <true/>
 
     <key>UserName</key>
     <string>quentin</string>
