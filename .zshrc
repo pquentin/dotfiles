@@ -211,8 +211,8 @@ alias mirror='xrandr --fb 1280x1024 --output VGA-0 --mode 1280x1024 --pos 0x0'
 # kubectl
 alias int1kubectl='kubectl --namespace=int1'
 alias int2kubectl='kubectl --namespace=int2'
-alias stgkubectl='kubectl --namespace=stg'
-alias prdkubectl='kubectl --namespace=prd'
+alias stg2kubectl='kubectl --namespace=stg2'
+alias prd2kubectl='kubectl --namespace=prd2'
 alias cikubectl='kubectl --namespace=ci'
 alias infrakubectl='kubectl --namespace=infrastructure'
 
