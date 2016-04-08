@@ -6,3 +6,5 @@
 
 [alias]
     lg = log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset -%C(blue)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+[commit]
+	gpgsign = true
