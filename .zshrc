@@ -208,14 +208,6 @@ export PATH=$PROJECTS_HOME/dotfiles/bin:$PATH
 alias normal='xrandr --output LVDS --auto --pos 0x0 --output VGA-0 --auto --right-of LVDS'
 alias mirror='xrandr --fb 1280x1024 --output VGA-0 --mode 1280x1024 --pos 0x0'
 
-# kubectl
-alias int1kubectl='kubectl --namespace=int1'
-alias int2kubectl='kubectl --namespace=int2'
-alias stg2kubectl='kubectl --namespace=stg2'
-alias prd2kubectl='kubectl --namespace=prd2'
-alias cikubectl='kubectl --namespace=ci'
-alias infrakubectl='kubectl --namespace=infrastructure'
-
 # In order for gpg to find gpg-agent, gpg-agent must be running, and there must be an env
 # variable pointing GPG to the gpg-agent socket. This little script, which must be sourced
 # in your shell's init script (ie, .bash_profile, .zshrc, whatever), will either start
