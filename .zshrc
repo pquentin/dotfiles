@@ -39,7 +39,7 @@ fi
 
 # git prompt preparations
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git cvs svn
+zstyle ':vcs_info:*' enable git cvs svn hg
 precmd () { dollar="∮"; vcs_info }
 setopt prompt_subst
 zstyle ':vcs_info:git*:*' check-for-changes true
