@@ -1,9 +1,10 @@
 # Large history
 setopt histignorealldups
-HISTSIZE=100000
-SAVEHIST=100000
+HISTSIZE=1000000
+SAVEHIST=1000000
 HISTFILE=~/.zsh_history
 setopt appendhistory  # append to history before closing terminal
+setopt extendedhistory # store times in history file
 setopt histignorespace  # forget commands starting with space
 
 export LC_ALL=en_US.UTF-8
