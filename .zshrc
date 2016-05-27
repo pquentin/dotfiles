@@ -38,6 +38,8 @@ elif [[ $platform == 'darwin' ]]; then
    alias ls='ls -G'
 fi
 
+alias grep='grep --color'
+
 # git prompt preparations
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git cvs svn hg
