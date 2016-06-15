@@ -224,4 +224,7 @@ else
     eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
 fi
 
+# iTerm2 shell integration
+source ~/.iterm2_shell_integration.zsh
+
 source ~/.zshrc_local
