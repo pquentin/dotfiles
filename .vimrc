@@ -41,6 +41,10 @@ set colorcolumn=+1
 set wildmenu
 set wildignore=*.o,*.obj,*.bak,*.exe,*.class,*.swp
 
+" yapf
+map <C-P> :call yapf#YAPF()<cr>
+imap <C-P> <c-o>:call yapf#YAPF()<cr>
+
 " file types
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
