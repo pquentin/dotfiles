@@ -42,7 +42,7 @@ alias grep='grep --color'
 
 # git prompt preparations
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git cvs svn hg
+zstyle ':vcs_info:*' enable git cvs svn hg bzr
 precmd () { dollar="∮"; vcs_info }
 setopt prompt_subst
 zstyle ':vcs_info:git*:*' check-for-changes true
