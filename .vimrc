@@ -45,6 +45,9 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.class,*.swp
 map <C-P> :call yapf#YAPF()<cr>
 imap <C-P> <c-o>:call yapf#YAPF()<cr>
 
+" vim-flake8
+autocmd BufWritePost *.py call Flake8()
+
 " file types
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
