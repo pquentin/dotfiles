@@ -76,3 +76,6 @@ map <C-H> <C-W>h
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
+
+" disable quote concealing from vim json
+let g:vim_json_syntax_conceal = 0
