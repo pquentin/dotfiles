@@ -228,4 +228,6 @@ fi
 # iTerm2 shell integration
 source ~/.iterm2_shell_integration.zsh
 
+source ~/.profile
+
 source ~/.zshrc_local
