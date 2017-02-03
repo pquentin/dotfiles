@@ -39,6 +39,7 @@ elif [[ $platform == 'darwin' ]]; then
 fi
 
 alias grep='grep --color'
+alias rg='rg -S'
 
 # git prompt preparations
 autoload -Uz vcs_info
