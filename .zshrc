@@ -95,7 +95,8 @@ function +vi-git-stash() {
 }
 
 # prompt
-PROMPT='%{$fg[cyan]%}%m%{$reset_color%}:%~$dollar '
+setopt PROMPT_SUBST
+PROMPT='${WORK_ENV}%{$fg[cyan]%}%m%{$reset_color%}:%~$dollar '
 RPROMPT='${vcs_info_msg_0_} %T'
 
 # Adapted from https://gist.github.com/euphoris/3405460
