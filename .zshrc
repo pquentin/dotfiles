@@ -7,6 +7,9 @@ setopt appendhistory  # append to history before closing terminal
 setopt extendedhistory # store times in history file
 setopt histignorespace  # forget commands starting with space
 
+# zsh-completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
