@@ -67,14 +67,11 @@ inoremap  <Down>   <NOP>
 inoremap  <Left>   <NOP>
 inoremap  <Right>  <NOP>
 
-" stacked wmii
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <C-L> <C-W>l
-map <C-H> <C-W>h
-
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
 " disable quote concealing from vim json
 let g:vim_json_syntax_conceal = 0
+
+" copy paste
+set clipboard=unnamed
