@@ -22,7 +22,10 @@ autoload -U colors && colors
 
 # Use emacs keybindings even if our EDITOR is set to vi
 export EDITOR=vim
-bindkey -e
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+bindkey '^P' up-history
+bindkey '^N' down-history
 # Shift-TAB
 bindkey '^[[Z' reverse-menu-complete
 
