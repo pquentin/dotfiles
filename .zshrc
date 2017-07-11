@@ -212,6 +212,9 @@ export PYTHONSTARTUP=$HOME/.pythonrc
 # pipsi
 export PATH=$HOME/.local/bin:$PATH
 
+# virtualenv: use existing pip, setuptools and wheel
+export VIRTUALENV_NO_DOWNLOAD=1
+
 # dotfiles
 export PATH=$PROJECTS_HOME/dotfiles/bin:$PATH
 
