@@ -22,6 +22,8 @@ set incsearch
 set ruler
 " show lines on the left
 set number
+" keep ale column open to avoid blinking
+let g:ale_sign_column_always = 1
 
 " Indentation
 set expandtab
