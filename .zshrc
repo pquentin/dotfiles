@@ -199,10 +199,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 # brew
 export PATH="/usr/local/sbin:$PATH"
 
-# CVS
-export CVS_RSH=ssh
-
-#ack
+# ack - replace with rg equivalent?
 export ACK_PAGER='less --RAW-CONTROL-CHARS --quit-if-one-screen --no-init'
 alias ack='ack --color-match=yellow'
 
@@ -218,9 +215,6 @@ export VIRTUALENV_NO_DOWNLOAD=1
 # dotfiles
 export PATH=$PROJECTS_HOME/dotfiles/bin:$PATH
 
-# xrandr for talks
-alias normal='xrandr --output LVDS --auto --pos 0x0 --output VGA-0 --auto --right-of LVDS'
-alias mirror='xrandr --fb 1280x1024 --output VGA-0 --mode 1280x1024 --pos 0x0'
 
 # In order for gpg to find gpg-agent, gpg-agent must be running, and there must be an env
 # variable pointing GPG to the gpg-agent socket. This little script, which must be sourced
