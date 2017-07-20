@@ -46,12 +46,5 @@ rmvirtualenv () {
         return 1
     fi
 
-    read -q "REPLY?Delete virtualenv '$env_path'? [y/N] " -c -n 1
-    echo
-    if [[ "$REPLY" =~ ^[Yy]$ ]]; then
-        rm -rf "$env_path"
-    else
-        echo "action aborted" >&2
-        return 1
-    fi
+    rm -rf "$env_path"
 }
