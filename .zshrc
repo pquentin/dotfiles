@@ -163,15 +163,12 @@ function chpwd() {
             if [[ ${cur_env} != $venvname ]]; then
                 workon "$venvname"
             fi
-        else
-            if [[ $VIRTUAL_ENV != "" ]]; then
-                deactivate
-            fi
+            return
         fi
-    else
-        if [[ $VIRTUAL_ENV != "" ]]; then
-            deactivate
-        fi
+    fi
+
+    if [[ $VIRTUAL_ENV != "" ]]; then
+        deactivate 2> /dev/null
     fi
 }
 
