@@ -32,6 +32,7 @@ mkvirtualenv () {
     fi
     mkdir -p "$env_path"
     "$(pyenv prefix)/bin/python3" -m venv "$env_path"
+    . "$env_path/bin/activate"
 }
 
 rmvirtualenv () {
