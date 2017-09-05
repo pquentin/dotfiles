@@ -15,6 +15,7 @@ export LANG=en_US.UTF-8
 
 setopt extendedglob notify
 unsetopt beep
+KEYTIMEOUT=1
 
 autoload -Uz compinit
 compinit

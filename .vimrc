@@ -18,6 +18,9 @@ autocmd BufNewFile,BufRead *.jsonl set filetype=json
 " incremental search
 set incsearch
 
+" no delay
+set timeoutlen=1000 ttimeoutlen=0
+
 " show lines and columns
 set ruler
 " show lines on the left
