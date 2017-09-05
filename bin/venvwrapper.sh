@@ -12,9 +12,9 @@ workon () {
         echo "Virtualenv '$virtualenv' does not exist" >&2
         return 1
     fi
-    if [ -n "$VIRTUAL_ENV" ]; then
-        deactivate
-    fi
+    # tmux seems to copy env vars when doing splits so we can't rely on
+    # $VIRTUAL_ENV to know if we should deactivate
+    deactivate 2> /dev/null
     . "$WORKON_HOME/$virtualenv/bin/activate"
 }
 
