@@ -189,8 +189,14 @@ alias getpass='tarsnap --fsck && cd ~ && tarsnap -x -f passes .local/share/pasaf
 alias storepieces='tarsnap --fsck && cd ~/Documents; tarsnap -d -f pieces && tarsnap -c -f pieces Pièces\ administratives; cd -'
 alias getpieces='tarsnap --fsck && cd ~/Documents; tarsnap -x -f pieces; cd -'
 
-# virtualenvwrapper
+# dotfiles
+export PATH=$PROJECTS_HOME/dotfiles/bin:$PATH
+
+# python, pyenv, virtualenvwrapper
+eval "$(pyenv init -)"
 export WORKON_HOME=~/.virtualenvs
+source venvwrapper.sh  # should be in $PATH
+
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 
@@ -206,12 +212,6 @@ export PYTHONSTARTUP=$HOME/.pythonrc
 
 # pipsi
 export PATH=$HOME/.local/bin:$PATH
-
-# virtualenv: use existing pip, setuptools and wheel
-export VIRTUALENV_NO_DOWNLOAD=1
-
-# dotfiles
-export PATH=$PROJECTS_HOME/dotfiles/bin:$PATH
 
 # iTerm2 shell integration
 source ~/.iterm2_shell_integration.zsh
