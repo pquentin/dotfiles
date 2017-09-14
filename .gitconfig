@@ -4,12 +4,11 @@
 
 [push]
     default = simple
+[pull]
+    rebase = true
 
 [alias]
-    lg = log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset -%C(blue)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-
-[commit]
-    gpgsign = true
+    lg = log --graph --pretty=format:'%C(magenta)%G?%C(reset) %Cred%h%Creset %C(cyan)%an%Creset -%C(blue)%d%Creset %s %Cgreen(%cD)%Creset' --abbrev-commit
 
 [pager]
     log = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | less
@@ -19,3 +18,10 @@
     diffFilter = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight
 [diff]
     compactionHeuristic = true
+
+[rebase]
+    autostash = true
+[stash]
+    showPatch = true
+[commit]
+    gpgsign = true
