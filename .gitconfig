@@ -11,9 +11,9 @@
     lg = log --graph --pretty=format:'%C(magenta)%G?%C(reset) %Cred%h%Creset %C(cyan)%an%Creset -%C(blue)%d%Creset %s %Cgreen(%cD)%Creset' --abbrev-commit
 
 [pager]
-    log = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | less
-    show = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | less
-    diff = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight | less
+    log = /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight | less
+    show = /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight | less
+    diff = /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight | less
 [interactive]
     diffFilter = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight
 [diff]
