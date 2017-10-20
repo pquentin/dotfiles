@@ -216,3 +216,5 @@ source ~/.iterm2_shell_integration.zsh
 source ~/.profile
 
 source ~/.zshrc_local
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
