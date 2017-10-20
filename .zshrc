@@ -207,9 +207,6 @@ export PATH="/usr/local/sbin:$PATH"
 export ACK_PAGER='less --RAW-CONTROL-CHARS --quit-if-one-screen --no-init'
 alias ack='ack --color-match=yellow'
 
-# Python REPL history
-export PYTHONSTARTUP=$HOME/.pythonrc
-
 # pipsi
 export PATH=$HOME/.local/bin:$PATH
 
