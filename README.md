@@ -1,6 +1,5 @@
 Requirements:
 
- * reattach-to-user-namespace
  * tmux
  * vim
  * zsh
