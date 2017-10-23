@@ -1,7 +1,21 @@
-let g:pathogen_disabled = ['dwm.vim']
-
-execute pathogen#infect()
-filetype plugin indent on
+" plugins
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-sensible'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'  " :Gbrowse github
+Plug 'tommcdo/vim-fubitive'  " :Gbrowse bitbucket
+Plug 'altercation/vim-colors-solarized'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'elzr/vim-json'
+Plug 'scrooloose/nerdtree'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'rust-lang/rust.vim'
+Plug 'w0rp/ale'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
+call plug#end()
 
 set nocompatible
 
@@ -78,3 +92,59 @@ let g:vim_json_syntax_conceal = 0
 
 " copy paste
 set clipboard=unnamed
+
+
+" GitGutter
+let g:gitgutter_sign_added = '∙'
+let g:gitgutter_sign_modified = '∙'
+let g:gitgutter_sign_removed = '∙'
+let g:gitgutter_sign_modified_removed = '∙'
+
+" Lightline
+let g:lightline = {
+\ 'colorscheme': 'wombat',
+\ 'active': {
+\   'left': [['mode', 'paste'], ['filename', 'modified']],
+\   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
+\ },
+\ 'component_expand': {
+\   'linter_warnings': 'LightlineLinterWarnings',
+\   'linter_errors': 'LightlineLinterErrors',
+\   'linter_ok': 'LightlineLinterOK'
+\ },
+\ 'component_type': {
+\   'readonly': 'error',
+\   'linter_warnings': 'warning',
+\   'linter_errors': 'error'
+\ },
+\ }
+
+function! LightlineLinterWarnings() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ◆', all_non_errors)
+endfunction
+
+function! LightlineLinterErrors() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '' : printf('%d ✗', all_errors)
+endfunction
+
+function! LightlineLinterOK() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+  let l:all_non_errors = l:counts.total - l:all_errors
+  return l:counts.total == 0 ? '✓ ' : ''
+endfunction
+
+autocmd User ALELint call s:MaybeUpdateLightline()
+
+" Update and show lightline but only if it's visible (e.g., not in Goyo)
+function! s:MaybeUpdateLightline()
+  if exists('#lightline')
+    call lightline#update()
+  end
+endfunction
