@@ -58,22 +58,7 @@ zstyle ':vcs_info:*' actionformats '%b|%a%m'
 zstyle ':vcs_info:*' formats       '%b%m'
 
 # http://eseth.org/2010/git-in-zsh.html#hooks
-zstyle ':vcs_info:git*+set-message:*' hooks git-status git-ref git-stash
-
-# Show modifications
-function +vi-git-status() {
-    local changed
-    modified=$(git status -s | egrep '^.[^ ]')
-    indexed=$(git status -s | grep '^[^ ].')
-
-    if [[ -n ${modified} ]]; then
-        dollar="%{$fg[yellow]%}∮%{$reset_color%}"
-    elif [[ -n ${indexed} ]]; then
-        dollar="%{$fg[green]%}∮%{$reset_color%}"
-    else
-        dollar="∮"
-    fi
-}
+zstyle ':vcs_info:git*+set-message:*' hooks git-ref git-stash
 
 # Show remote ref name
 function +vi-git-ref() {
@@ -105,6 +90,21 @@ function +vi-git-stash() {
 setopt PROMPT_SUBST
 PROMPT='${WORK_ENV}%{$fg[cyan]%}%m%{$reset_color%}:%~$dollar '
 RPROMPT='${vcs_info_msg_0_} %T'
+
+function zle-line-init zle-keymap-select {
+  PROMPT=`purs prompt -k "$KEYMAP" -r "$?"`
+  zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+autoload -Uz add-zsh-hook
+
+function _prompt_purs_precmd() {
+    purs precmd
+}
+add-zsh-hook precmd _prompt_purs_precmd
+
 
 # Adapted from https://gist.github.com/euphoris/3405460
 export PROJECTS_HOME="$HOME/Projects"
