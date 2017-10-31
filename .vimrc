@@ -104,7 +104,7 @@ let g:gitgutter_sign_modified_removed = '∙'
 let g:lightline = {
 \ 'colorscheme': 'wombat',
 \ 'active': {
-\   'left': [['mode', 'paste'], ['relativepath', 'modified']],
+\   'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']],
 \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
 \ },
 \ 'component_expand': {
