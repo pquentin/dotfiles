@@ -5,6 +5,7 @@ SAVEHIST=1000000
 HISTFILE=~/.zsh_history
 setopt appendhistory  # append to history before closing terminal
 setopt extendedhistory # store times in history file
+setopt inc_append_history_time  # fill history after each command
 setopt histignorespace  # forget commands starting with space
 
 # zsh-completions
