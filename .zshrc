@@ -8,9 +8,6 @@ setopt extendedhistory # store times in history file
 setopt inc_append_history_time  # fill history after each command
 setopt histignorespace  # forget commands starting with space
 
-# zsh-completions
-fpath=(/usr/local/share/zsh-completions $fpath)
-
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
