@@ -151,3 +151,7 @@ function! s:MaybeUpdateLightline()
     call lightline#update()
   end
 endfunction
+
+" \aj and \ak to get next/previous ale error
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
