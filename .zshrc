@@ -125,28 +125,15 @@ function u() {
     done
 }
 
-function glogday() {
-    for p in `find $PROJECTS_HOME -type d -depth 1`; do
-        git --git-dir=$p/.git --work-tree=$p --no-pager log --date=local --since=$1T00:00:00 --before=$1T23:59:59 --author='Quentin Pradet' 2> /dev/null
-    done
-}
-
-function glogprecise() {
-    for p in `find $PROJECTS_HOME -type d -depth 1`; do
-        git --git-dir=$p/.git --work-tree=$p --no-pager log --date=local --since=$1 --before=$1 --author='Quentin Pradet' 2> /dev/null
-    done
-}
-
 function gp() {
     for p in `find $PROJECTS_HOME -type d -depth 1`; do
         cd $p; pwd; git branch; git pull --rebase; cd - > /dev/null; echo
     done
 }
 
-function checkoutbranch() {
-    for p in `find $PROJECTS_HOME -type d -depth 1`; do
-        cd $p; pwd; git checkout $1; cd - > /dev/null; echo
-    done
+function ghrb() {  # github remote branch
+    git fetch origin pull/$1/head:$1
+    git checkout $1
 }
 
 alias fixvenv3='deactivate; rmvirtualenv $(basename $(pwd)); mkvirtualenv $(basename $(pwd)) && pip install -r requirements-dev.txt || pip install -r requirements.txt'
