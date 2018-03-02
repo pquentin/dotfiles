@@ -125,12 +125,6 @@ function u() {
     done
 }
 
-function gp() {
-    for p in `find $PROJECTS_HOME -type d -depth 1`; do
-        cd $p; pwd; git branch; git pull --rebase; cd - > /dev/null; echo
-    done
-}
-
 function ghrb() {  # github remote branch
     git fetch origin pull/$1/head:$1
     git checkout $1
