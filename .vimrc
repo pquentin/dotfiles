@@ -24,7 +24,7 @@ set modeline
 
 " Syntax highlighting
 syntax on
-set background=dark
+set background=light
 colorscheme solarized
 set hlsearch
 autocmd BufNewFile,BufRead *.jsonl set filetype=json
