@@ -156,3 +156,6 @@ endfunction
 " \aj and \ak to get next/previous ale error
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
+
+" disable pylint
+let g:ale_linters = {'python': ['flake8', 'mypy']}
