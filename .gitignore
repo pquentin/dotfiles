@@ -5,6 +5,7 @@
 .*.swp
 
 .vim/.netrwhist
+.vim/black
 .vim/plugged
 *.sug
 *.spl

@@ -15,6 +15,7 @@ Plug 'w0rp/ale'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'ambv/black'
 call plug#end()
 
 set nocompatible
@@ -52,7 +53,7 @@ autocmd Filetype json setlocal expandtab shiftwidth=2 softtabstop=2
 
 " column, but no wrap
 au FileType text,markdown,rst setlocal textwidth=70
-au FileType tex,python,javascript,htmldjango setlocal textwidth=79
+au FileType tex,python,javascript,htmldjango setlocal textwidth=88
 set formatoptions-=t
 set colorcolumn=+1
 
@@ -61,8 +62,8 @@ set wildmenu
 set wildignore=*.o,*.obj,*.bak,*.exe,*.class,*.swp
 
 " yapf
-map <C-P> :call yapf#YAPF()<cr>
-imap <C-P> <c-o>:call yapf#YAPF()<cr>
+map <C-P> :Black<cr>
+imap <C-P> <c-o>:Black<cr>
 
 " file types
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
