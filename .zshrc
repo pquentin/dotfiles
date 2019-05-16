@@ -188,6 +188,7 @@ alias ack='ack --color-match=yellow'
 
 # pipsi
 export PATH=$HOME/.local/bin:$PATH
+export PIP_PROGRESS_BAR=pretty
 
 # iTerm2 shell integration
 source ~/.iterm2_shell_integration.zsh
