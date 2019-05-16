@@ -8,7 +8,7 @@
     rebase = true
 
 [alias]
-    lg = log --graph --pretty=format:'%C(magenta)%G?%C(reset) %Cred%h%Creset %C(cyan)%an%Creset -%C(blue)%d%Creset %s %Cgreen(%cD)%Creset' --abbrev-commit
+    lg = log --graph --pretty=format:'%C(magenta)%G?%C(reset) %Cred%h%Creset %C(cyan)%an%Creset -%C(blue)%d%Creset %s %Cgreen(%aD)%Creset' --abbrev-commit
 
 [pager]
     log = /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight | less
