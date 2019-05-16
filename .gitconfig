@@ -25,3 +25,6 @@
     showPatch = true
 [commit]
     gpgsign = true
+
+[flake8]
+    strict = true
