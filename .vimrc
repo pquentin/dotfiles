@@ -61,9 +61,10 @@ set colorcolumn=+1
 set wildmenu
 set wildignore=*.o,*.obj,*.bak,*.exe,*.class,*.swp
 
-" yapf
+" black
 map <C-P> :Black<cr>
 imap <C-P> <c-o>:Black<cr>
+autocmd BufWritePre */Projects/*.py execute ':Black'
 
 " file types
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
