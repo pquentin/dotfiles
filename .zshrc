@@ -19,7 +19,6 @@ autoload -Uz compinit
 compinit
 autoload -U colors && colors
 
-# Use emacs keybindings even if our EDITOR is set to vi
 export EDITOR=vim
 bindkey -v
 bindkey '^R' history-incremental-search-backward
@@ -197,6 +196,9 @@ source ~/.iterm2_shell_integration.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# macOS notifications
+function notifyme() {osascript -e "display notification \"$*\" with title \"notifyme\""}
 
 source ~/.profile
 
