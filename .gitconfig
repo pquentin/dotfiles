@@ -15,7 +15,7 @@
     show = /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight | less
     diff = /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight | less
 [interactive]
-    diffFilter = `brew --prefix git`/share/git-core/contrib/diff-highlight/diff-highlight
+    diffFilter = /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight
 [diff]
     compactionHeuristic = true
 
