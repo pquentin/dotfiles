@@ -25,7 +25,7 @@ set modeline
 
 " Syntax highlighting
 syntax on
-set background=light
+set background=dark
 colorscheme solarized
 set hlsearch
 autocmd BufNewFile,BufRead *.jsonl set filetype=json
@@ -64,7 +64,7 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.class,*.swp
 " black
 map <C-P> :Black<cr>
 imap <C-P> <c-o>:Black<cr>
-autocmd BufWritePre */Projects/*.py execute ':Black'
+" autocmd BufWritePre */Projects/*.py execute ':Black'
 
 " file types
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
