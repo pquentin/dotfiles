@@ -1,2 +1,2 @@
 cachedir ~/.cache/tarsnap
-keyfile ~/.tarsnap.key
+keyfile ~/Documents/.tarsnap.key
