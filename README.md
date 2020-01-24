@@ -1,7 +1,7 @@
 homebrew requirements:
 
  * tmux
- * vim (Then :PlugInstall)
+ * vim (Then install vim-plug then run :PlugInstall)
  * zsh
  * fzf (Then /usr/local/opt/fzf/install --no-bash --key-bindings --completion --no-update-rc)
  * purs (see below)

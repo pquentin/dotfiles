@@ -6,6 +6,7 @@
 
 .vim/.netrwhist
 .vim/black
+.vim/autoload/plug.vim*
 .vim/plugged
 *.sug
 *.spl
