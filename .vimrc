@@ -67,7 +67,10 @@ set wildignore=*.o,*.obj,*.bak,*.exe,*.class,*.swp
 " black
 map <C-P> :Black<cr>
 imap <C-P> <c-o>:Black<cr>
-" autocmd BufWritePre */Projects/*.py execute ':Black'
+autocmd BufWritePre */Projects/*.py execute ':Black'
+autocmd BufWritePre */Software/urllib3/*.py execute ':Black'
+autocmd BufWritePre */Software/hip/*.py execute ':Black'
+autocmd BufWritePre */Software/unasync/*.py execute ':Black'
 
 " file types
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
