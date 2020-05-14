@@ -21,8 +21,10 @@ call plug#end()
 set nocompatible
 set encoding=utf8
 
-" modelines (used for spellcheck)
-set modeline
+" modelines (used for spellcheck language)
+" but first find a way to only enable it for my blog:
+" https://news.ycombinator.com/item?id=20098691
+" set nomodeline
 
 " Syntax highlighting
 syntax on
