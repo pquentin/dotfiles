@@ -19,6 +19,7 @@ Plug 'psf/black'
 call plug#end()
 
 set nocompatible
+set encoding=utf8
 
 " modelines (used for spellcheck)
 set modeline
