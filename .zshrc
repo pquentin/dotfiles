@@ -105,6 +105,7 @@ add-zsh-hook precmd _prompt_purs_precmd
 
 # Adapted from https://gist.github.com/euphoris/3405460
 export PROJECTS_HOME="$HOME/Projects"
+export SOFTWARE_HOME="$HOME/Software"
 
 function u() {
     for p in `find $PROJECTS_HOME -type d -depth 1`; do
@@ -134,8 +135,8 @@ alias showauthors='git log | grep Author | sort | uniq -c | sort -rn'
 
 function chpwd() {
     emulate -L zsh
-    if [[ ${PWD##$PROJECTS_HOME} != $PWD ]]; then
-        venvname=$(echo "${PWD##$PROJECTS_HOME}" | cut -d'/' -f2)
+    if [[ ${PWD##$PROJECTS_HOME} != $PWD || ${PWD##$SOFTWARE_HOME} != $PWD ]]; then
+        venvname=$(basename $PWD)
         cur_env=$(echo "${VIRTUAL_ENV##$WORKON_HOME}/" | cut -d'/' -f2)
         if [[ $venvname != "" ]] && [[ -d "$WORKON_HOME/$venvname" ]]; then
             if [[ ${cur_env} != $venvname ]]; then
