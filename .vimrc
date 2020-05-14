@@ -11,11 +11,11 @@ Plug 'elzr/vim-json'
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rust-lang/rust.vim'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'ambv/black'
+Plug 'psf/black'
 call plug#end()
 
 set nocompatible
