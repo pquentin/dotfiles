@@ -31,7 +31,7 @@ mkvirtualenv () {
         return 1
     fi
     mkdir -p "$env_path"
-    "/usr/local/bin/python3" -m venv "$env_path"
+    /usr/local/bin/python3 -m venv "$env_path"
     . "$env_path/bin/activate"
     pip install -U pip wheel setuptools
 }

@@ -158,9 +158,4 @@ nmap <silent> <leader>ak :ALEPrevious<cr>
 " disable pylint
 let g:ale_linters = {'python': ['flake8', 'mypy']}
 let g:ale_fixers = {'python': ['isort', 'black']}
-
-let b:ale_fix_on_save = 0
-let filepath = expand('%:p:h')
-if match(filepath, 'Projects\|urllib3\|hip\|unasync') != -1
-    let b:ale_fix_on_save = 1
-endif
+let g:ale_fix_on_save = 1

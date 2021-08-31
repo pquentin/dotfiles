@@ -7,11 +7,10 @@ homebrew requirements:
  * purs (see below)
  * pyenv
  * gpg
+ * git
  * ripgrep
  * jq
- * node and yarn
  * httpie
- * xmlsec1 and gettext for frontend-api
  * moreutils (for sponge)
 
 Casks:

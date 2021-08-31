@@ -15,8 +15,8 @@ setopt extendedglob notify
 unsetopt beep
 KEYTIMEOUT=1
 
-autoload -Uz compinit
-compinit
+autoload -U compinit && compinit
+zmodload -i zsh/complist
 autoload -U colors && colors
 
 export EDITOR=vim
@@ -104,8 +104,8 @@ add-zsh-hook precmd _prompt_purs_precmd
 
 
 # Adapted from https://gist.github.com/euphoris/3405460
-export PROJECTS_HOME="$HOME/Projects"
-export SOFTWARE_HOME="$HOME/Software"
+export PROJECTS_HOME="$HOME/Projects/"
+export SOFTWARE_HOME="$HOME/Software/"
 
 function u() {
     for p in `find $PROJECTS_HOME -type d -depth 1`; do
@@ -135,8 +135,10 @@ alias showauthors='git log | grep Author | sort | uniq -c | sort -rn'
 
 function chpwd() {
     emulate -L zsh
-    if [[ ${PWD##$PROJECTS_HOME} != $PWD || ${PWD##$SOFTWARE_HOME} != $PWD ]]; then
-        venvname=$(basename $PWD)
+    if [[ $(dirname ${PWD##$PROJECTS_HOME}) != $PWD || $(dirname ${PWD##$SOFTWARE_HOME}) != $PWD ]]; then
+        # Path is of form /Users/$USER/ProjectsOrSoftware/$ACTUAL_PROJECT
+        # So we just get the 5th element to get the venv name
+        venvname=$(echo $PWD | cut -d / -f 5)
         cur_env=$(echo "${VIRTUAL_ENV##$WORKON_HOME}/" | cut -d'/' -f2)
         if [[ $venvname != "" ]] && [[ -d "$WORKON_HOME/$venvname" ]]; then
             if [[ ${cur_env} != $venvname ]]; then
@@ -169,10 +171,9 @@ alias storepieces='tarsnap --fsck && cd ~/Documents; tarsnap -d -f pieces && tar
 alias getpieces='tarsnap --fsck && cd ~/Documents; tarsnap -x -f pieces; cd -'
 
 # dotfiles
-export PATH=$PROJECTS_HOME/dotfiles/bin:$PATH
+export PATH=$HOME/Software/dotfiles/bin:$PATH
 
-# python, pyenv, virtualenvwrapper
-eval "$(pyenv init -)"
+# python virtualenvs
 export WORKON_HOME=~/.virtualenvs
 source venvwrapper.sh  # should be in $PATH
 
