@@ -32,6 +32,10 @@ colorscheme solarized
 set hlsearch
 autocmd BufNewFile,BufRead *.jsonl set filetype=json
 
+if &diff
+    colorscheme solarized
+endif
+
 " incremental search
 set incsearch
 

@@ -14,11 +14,11 @@
     lg = log --graph --pretty=format:'%C(magenta)%G?%C(reset) %Cred%h%Creset %C(cyan)%an%Creset -%C(blue)%d%Creset %s %Cgreen(%aD)%Creset' --abbrev-commit
 
 [pager]
-    log = /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight | less
-    show = /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight | less
-    diff = /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight | less
+    log = /usr/share/git-core/contrib/diff-highlight | less
+    show = /usr/share/git-core/contrib/diff-highlight | less
+    diff = /usr/share/git-core/contrib/diff-highlight | less
 [interactive]
-    diffFilter = /usr/local/opt/git/share/git-core/contrib/diff-highlight/diff-highlight
+    diffFilter = /usr/share/git-core/contrib/diff-highlight
 [diff]
     compactionHeuristic = true
 

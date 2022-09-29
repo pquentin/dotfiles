@@ -19,7 +19,9 @@ autoload -U compinit && compinit
 zmodload -i zsh/complist
 autoload -U colors && colors
 
-export EDITOR=vim
+export EDITOR=nvim
+alias vim=nvim
+function vimdiff() { nvim -d $* }
 bindkey -v
 bindkey '^R' history-incremental-search-backward
 bindkey '^P' up-history
